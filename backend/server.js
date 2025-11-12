@@ -29,6 +29,7 @@ app.get('/', (_req, res) => res.json({ message: 'API de Usuarios funcionando cor
 process.on('unhandledRejection', (r) => console.error('UNHANDLED REJECTION =>', r));
 process.on('uncaughtException', (e) => { console.error('UNCAUGHT EXCEPTION =>', e); process.exit(1); });
 
-// En Codespaces, es mejor escuchar en 0.0.0.0 para exponer el puerto
-app.listen(PORT, '0.0.0.0', () => console.log(`🚀 API en http://localhost:${PORT}`));
+app.listen(process.env.PORT || 5050, '0.0.0.0', () =>
+  console.log(`🚀 API en http://localhost:${process.env.PORT || 5050}`)
+);
 
